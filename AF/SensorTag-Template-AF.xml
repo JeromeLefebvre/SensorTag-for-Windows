@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AF xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="OSIsoft.AF.xsd" SchemaVersion="2.0" SoftwareVersion="2.8.6.7801" ExportMode="AllReferences, NoUniqueID" PISystem="JLEFEBVRENEW" Database="sensortags" Description="" Created="2017-02-16T02:44:58.9912091Z" id="38a52092-eede-4e75-805a-786165b7a829" ParentKey="ca82a363-daa1-4e22-b523-21a497db4c81" ExportedObject="sensortag" ExportedType="AFElementTemplate" Identity="ElementTemplate" PIPersist="192 {9895150E-085D-4fcb-A16D-5EF5D2527196} 2\{f9c322c2-354c-426e-8983-31863cebaf06}\ElementTemplates[{38a52092-eede-4e75-805a-786165b7a829}]*JLEFEBVRENEW\sensortags\ElementTemplates[sensortag]">
+  <AFElementTemplate>
+    <Name>sensortag</Name>
+    <Type>None</Type>
+    <InstanceType>Element</InstanceType>
+    <AllowElementToExtend>false</AllowElementToExtend>
+    <AFAttributeTemplate>
+      <Name>bar1</Name>
+      <Type>Double</Type>
+      <Value type="Double">0</Value>
+      <DataReference>PI Point</DataReference>
+      <ConfigString>\\%Server%\UFL.%Element%.bar1;pointtype=Float64</ConfigString>
+      <AFAttributeCategoryRef>Environment</AFAttributeCategoryRef>
+    </AFAttributeTemplate>
+    <AFAttributeTemplate>
+      <Name>Model</Name>
+      <Type>String</Type>
+      <Value type="String">0</Value>
+      <DataReference>Table Lookup</DataReference>
+      <ConfigString>SELECT Model FROM Model WHERE Mac = '%Element%'</ConfigString>
+      <AFAttributeCategoryRef>Specs</AFAttributeCategoryRef>
+    </AFAttributeTemplate>
+    <AFAttributeTemplate>
+      <Name>加速度X軸</Name>
+      <Description>Units: g</Description>
+      <DefaultUOM>m2/s</DefaultUOM>
+      <Type>Double</Type>
+      <Value type="Double">0</Value>
+      <DataReference>PI Point</DataReference>
+      <ConfigString>\\%Server%\UFL.%Element%.accx;UOM=m2/s;pointtype=Float64</ConfigString>
+      <AFAttributeCategoryRef>Movement</AFAttributeCategoryRef>
+    </AFAttributeTemplate>
+    <AFAttributeTemplate>
+      <Name>加速度Y軸</Name>
+      <DefaultUOM>m2/s</DefaultUOM>
+      <Type>Double</Type>
+      <Value type="Double">0</Value>
+      <DataReference>PI Point</DataReference>
+      <ConfigString>\\%Server%\UFL.%Element%.accy;UOM=m2/s;pointtype=Float64</ConfigString>
+      <AFAttributeCategoryRef>Movement</AFAttributeCategoryRef>
+    </AFAttributeTemplate>
+    <AFAttributeTemplate>
+      <Name>加速度Z軸</Name>
+      <Description>Units: Gravity</Description>
+      <DefaultUOM>m2/s</DefaultUOM>
+      <Type>Double</Type>
+      <Value type="Double">0</Value>
+      <DataReference>PI Point</DataReference>
+      <ConfigString>\\%Server%\UFL.%Element%.accz;UOM=m2/s;pointtype=Float64</ConfigString>
+      <AFAttributeCategoryRef>Movement</AFAttributeCategoryRef>
+    </AFAttributeTemplate>
+    <AFAttributeTemplate>
+      <Name>角速度X軸</Name>
+      <Type>Double</Type>
+      <Value type="Double">0</Value>
+      <DataReference>PI Point</DataReference>
+      <ConfigString>\\%Server%\UFL.%Element%.gyrx;pointtype=Float64</ConfigString>
+      <AFAttributeCategoryRef>Movement</AFAttributeCategoryRef>
+    </AFAttributeTemplate>
+    <AFAttributeTemplate>
+      <Name>角速度Y軸</Name>
+      <Type>Double</Type>
+      <Value type="Double">0</Value>
+      <DataReference>PI Point</DataReference>
+      <ConfigString>\\%Server%\UFL.%Element%.gyry;pointtype=Float64</ConfigString>
+      <AFAttributeCategoryRef>Movement</AFAttributeCategoryRef>
+    </AFAttributeTemplate>
+    <AFAttributeTemplate>
+      <Name>角速度Z軸</Name>
+      <Description>Units: (degrees/s)</Description>
+      <Type>Double</Type>
+      <Value type="Double">0</Value>
+      <DataReference>PI Point</DataReference>
+      <ConfigString>\\%Server%\UFL.%Element%.gyrz;pointtype=Float64</ConfigString>
+      <AFAttributeCategoryRef>Movement</AFAttributeCategoryRef>
+    </AFAttributeTemplate>
+    <AFAttributeTemplate>
+      <Name>環境温度</Name>
+      <DefaultUOM>deg C</DefaultUOM>
+      <Type>Double</Type>
+      <Value type="Double">0</Value>
+      <DataReference>PI Point</DataReference>
+      <ConfigString>\\%Server%\UFL.%Element%.hum1;UOM=°C;pointtype=Float64</ConfigString>
+      <AFAttributeCategoryRef>Environment</AFAttributeCategoryRef>
+    </AFAttributeTemplate>
+    <AFAttributeTemplate>
+      <Name>環境温度2</Name>
+      <Type>Double</Type>
+      <Value type="Double">0</Value>
+      <DataReference>PI Point</DataReference>
+      <ConfigString>\\%Server%\UFL.%Element%.tem1;pointtype=Float64</ConfigString>
+      <AFAttributeCategoryRef>Environment</AFAttributeCategoryRef>
+    </AFAttributeTemplate>
+    <AFAttributeTemplate>
+      <Name>気圧</Name>
+      <DefaultUOM>mbar</DefaultUOM>
+      <Type>Double</Type>
+      <Value type="Double">0</Value>
+      <DataReference>PI Point</DataReference>
+      <ConfigString>\\%Server%\UFL.%Element%.bar2;pointtype=Float64</ConfigString>
+      <AFAttributeCategoryRef>Environment</AFAttributeCategoryRef>
+    </AFAttributeTemplate>
+    <AFAttributeTemplate>
+      <Name>磁気X軸</Name>
+      <Type>Double</Type>
+      <Value type="Double">0</Value>
+      <DataReference>PI Point</DataReference>
+      <ConfigString>\\%Server%\UFL.%Element%.magx;pointtype=Float64</ConfigString>
+      <AFAttributeCategoryRef>磁気</AFAttributeCategoryRef>
+    </AFAttributeTemplate>
+    <AFAttributeTemplate>
+      <Name>磁気Y軸</Name>
+      <Type>Double</Type>
+      <Value type="Double">0</Value>
+      <DataReference>PI Point</DataReference>
+      <ConfigString>\\%Server%\UFL.%Element%.magy;pointtype=Float64</ConfigString>
+      <AFAttributeCategoryRef>磁気</AFAttributeCategoryRef>
+    </AFAttributeTemplate>
+    <AFAttributeTemplate>
+      <Name>磁気Z軸</Name>
+      <Description>units: uT</Description>
+      <Type>Double</Type>
+      <Value type="Double">0</Value>
+      <DataReference>PI Point</DataReference>
+      <ConfigString>\\%Server%\UFL.%Element%.magz;pointtype=Float64</ConfigString>
+      <AFAttributeCategoryRef>磁気</AFAttributeCategoryRef>
+    </AFAttributeTemplate>
+    <AFAttributeTemplate>
+      <Name>湿度</Name>
+      <Description>Units: %RH</Description>
+      <DefaultUOM>atm(g)</DefaultUOM>
+      <Type>Double</Type>
+      <Value type="Double">0</Value>
+      <DataReference>PI Point</DataReference>
+      <ConfigString>\\%Server%\UFL.%Element%.hum2;pointtype=Float64</ConfigString>
+      <AFAttributeCategoryRef>Environment</AFAttributeCategoryRef>
+    </AFAttributeTemplate>
+    <AFAttributeTemplate>
+      <Name>湿度2</Name>
+      <Type>Double</Type>
+      <Value type="Double">0</Value>
+      <DataReference>PI Point</DataReference>
+      <ConfigString>\\%Server%\UFL.%Element%.tem2;pointtype=Float64</ConfigString>
+      <AFAttributeCategoryRef>Environment</AFAttributeCategoryRef>
+    </AFAttributeTemplate>
+    <AFAttributeTemplate>
+      <Name>照度</Name>
+      <Description>Units: Lux</Description>
+      <Type>Double</Type>
+      <Value type="Double">0</Value>
+      <DataReference>PI Point</DataReference>
+      <ConfigString>\\%Server%\UFL.%Element%.lig;pointtype=%@.|pointtype%;span=%@.|span%;zero=%@.|zero%</ConfigString>
+      <AFAttributeCategoryRef>Environment</AFAttributeCategoryRef>
+      <AFAttributeTemplate>
+        <Name>max</Name>
+        <Description>S=span;Z=zero;[S+Z]</Description>
+        <Trait>Maximum</Trait>
+        <Value type="Double">0</Value>
+        <DataReference>Table Lookup</DataReference>
+        <ConfigString>SELECT [%attribute%] FROM タグ定義 WHERE Model = @[|Model] AND センサー = '%..|Attribute%' ORDER BY Zero</ConfigString>
+      </AFAttributeTemplate>
+      <AFAttributeTemplate>
+        <Name>pointtype</Name>
+        <Type>String</Type>
+        <Value type="String">0</Value>
+        <DataReference>Table Lookup</DataReference>
+        <ConfigString>SELECT [%attribute%] FROM タグ定義 WHERE Model = @[|Model] AND センサー = '%..|Attribute%' ORDER BY Zero</ConfigString>
+      </AFAttributeTemplate>
+      <AFAttributeTemplate>
+        <Name>span</Name>
+        <Type>Double</Type>
+        <Value type="Double">0</Value>
+        <DataReference>Formula</DataReference>
+        <ConfigString>M=max;Z=zero;[M-Z]</ConfigString>
+      </AFAttributeTemplate>
+      <AFAttributeTemplate>
+        <Name>UOM</Name>
+        <Type>Single</Type>
+        <Value type="Single">0</Value>
+        <DataReference>Table Lookup</DataReference>
+        <ConfigString>SELECT [%attribute%] FROM タグ定義 WHERE Model = @[|Model] AND センサー = '%..|Attribute%' ORDER BY Zero</ConfigString>
+      </AFAttributeTemplate>
+      <AFAttributeTemplate>
+        <Name>zero</Name>
+        <Trait>Minimum</Trait>
+        <Value type="Double">0</Value>
+        <DataReference>Table Lookup</DataReference>
+        <ConfigString>SELECT [%attribute%] FROM タグ定義 WHERE Model = @[|Model] AND センサー = '%..|Attribute%' ORDER BY Zero</ConfigString>
+      </AFAttributeTemplate>
+    </AFAttributeTemplate>
+  </AFElementTemplate>
+</AF>

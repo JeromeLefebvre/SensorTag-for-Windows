@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AF xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="OSIsoft.AF.xsd" SchemaVersion="2.0" SoftwareVersion="2.8.6.7801" ExportMode="AllReferences, NoUniqueID" PISystem="JLEFEBVRENEW" Database="sensortags" Description="" Created="2017-02-16T02:48:08.4624945Z" id="a7b58b9f-afd3-4dcc-878c-ddaae8d1cac2" ParentKey="ca82a363-daa1-4e22-b523-21a497db4c81" ExportedObject="タグ定義" ExportedType="AFTable" Identity="Table" PIPersist="167 {9895150E-085D-4fcb-A16D-5EF5D2527196} 2\{f9c322c2-354c-426e-8983-31863cebaf06}\Tables[{a7b58b9f-afd3-4dcc-878c-ddaae8d1cac2}]*JLEFEBVRENEW\sensortags\Tables[タグ定義]">
+  <AFTable>
+    <Name>タグ定義</Name>
+    <ExternalPersist>false</ExternalPersist>
+    <Schema>
+<xs:schema id="タグ定義DataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xs:element name="タグ定義DataSet" msdata:IsDataSet="true" msdata:Locale="">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="タグ定義">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Model" type="xs:string" minOccurs="0" />
+              <xs:element name="センサー" type="xs:string" minOccurs="0" />
+              <xs:element name="zero" type="xs:double" default="0" minOccurs="0" />
+              <xs:element name="max" type="xs:double" default="0" minOccurs="0" />
+              <xs:element name="pointtype" type="xs:string" minOccurs="0" />
+              <xs:element name="UOM" type="xs:string" minOccurs="0" />
+              <xs:element name="Ressource" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema></Schema>
+    <DataTable><タグ定義DataSet><タグ定義><Model>CC2650</Model><センサー>照度</センサー><zero>0.01</zero><max>83000</max><pointtype>Float32</pointtype><UOM>Lux</UOM><Ressource>http://www.ti.com/product/opt3001</Ressource></タグ定義><タグ定義><Model>CC2650</Model><センサー>Barometer</センサー><zero>950</zero><max>1050</max><pointtype>Float32</pointtype><UOM>hpa</UOM><Ressource>https://www.bosch-sensortec.com/bst/products/all_products/bmp280</Ressource></タグ定義><タグ定義><Model>CC2650</Model><センサー>温度</センサー><zero>-40</zero><max>125</max><pointtype>Float32</pointtype><UOM>C</UOM><Ressource>http://www.ti.com/product/tmp007</Ressource></タグ定義><タグ定義><Model>CC2650</Model><センサー>Acceleration</センサー><zero>-16</zero><max>16</max><pointtype>Float32</pointtype><UOM>g</UOM><Ressource>https://www.invensense.com/products/motion-tracking/9-axis/mpu-9250/</Ressource></タグ定義><タグ定義><Model>CC2650</Model><センサー>湿度</センサー><zero>0</zero><max>100</max><pointtype>Float32</pointtype><UOM>%</UOM><Ressource>http://www.ti.com/product/hdc1000</Ressource></タグ定義></タグ定義DataSet></DataTable>
+  </AFTable>
+</AF>

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AF xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="OSIsoft.AF.xsd" SchemaVersion="2.0" SoftwareVersion="2.8.6.7801" ExportMode="AllReferences, NoUniqueID" PISystem="JLEFEBVRENEW" Database="sensortags" Description="" Created="2017-02-16T02:48:24.0171413Z" id="14ebc161-b9e0-457d-af56-b30543b9ff45" ParentKey="ca82a363-daa1-4e22-b523-21a497db4c81" ExportedObject="Model" ExportedType="AFTable" Identity="Table" PIPersist="168 {9895150E-085D-4fcb-A16D-5EF5D2527196} 2\{f9c322c2-354c-426e-8983-31863cebaf06}\Tables[{14ebc161-b9e0-457d-af56-b30543b9ff45}]*JLEFEBVRENEW\sensortags\Tables[Model]">
+  <AFTable>
+    <Name>Model</Name>
+    <ExternalPersist>false</ExternalPersist>
+    <Schema>
+<xs:schema id="ModelDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xs:element name="ModelDataSet" msdata:IsDataSet="true" msdata:Locale="">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Model">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Mac" type="xs:string" minOccurs="0" />
+              <xs:element name="Model" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema></Schema>
+    <DataTable><ModelDataSet><Model><Mac>24:71:89:E6:DF:84</Mac><Model>CC2650</Model></Model><Model><Mac>38:11:2F:E2:B3:B9</Mac><Model>CC2650</Model></Model></ModelDataSet></DataTable>
+  </AFTable>
+</AF>
