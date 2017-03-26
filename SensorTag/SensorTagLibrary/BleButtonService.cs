@@ -85,6 +85,7 @@ namespace SensorTag
                         {
                             byte bits = reader.ReadByte();
 
+                            
                             OnButtonValueChanged(new SensorButtonEventArgs(bits, eventArgs.Timestamp));
                         }
                     }

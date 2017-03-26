@@ -1,15 +1,8 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Text;
 using System.Threading.Tasks;
 using Windows.Devices.Bluetooth.GenericAttributeProfile;
 using Windows.Storage.Streams;
-using Windows.Web.Http;
-using Windows.Web.Http.Filters;
-using Windows.Security.Cryptography.Certificates;
-using System.Collections.ObjectModel;
-using System.Collections.Specialized;
-using Windows.Web.Http.Headers;
 
 namespace SensorTag
 {
@@ -23,7 +16,6 @@ namespace SensorTag
 
         public BleLightIntensityService()
         {
-            values.CollectionChanged += OnCollectionChanged;
         }
 
         /// <summary>
@@ -35,8 +27,6 @@ namespace SensorTag
         static Guid LightIntensityCharacteristicUuid = Guid.Parse("f000aa71-0451-4000-b000-000000000000");
         static Guid LightIntensityCharacteristicConfigUuid = Guid.Parse("f000aa72-0451-4000-b000-000000000000");
         static Guid LightIntensityCharacteristicPeriodUuid = Guid.Parse("f000aa73-0451-4000-b000-000000000000");
-
-        static public ObservableCollection<Tuple<DateTimeOffset, Double>> values = new ObservableCollection<Tuple<DateTimeOffset, double>>();
 
         Delegate _lightValueChanged;
 
@@ -64,6 +54,21 @@ namespace SensorTag
                         UnregisterForValueChangeEvents(LightIntensityCharacteristicUuid);
                     }
                 }
+            }
+        }
+
+
+        private string _sensortag_mac;
+
+        public string mac
+        {
+            get
+            {
+                return _sensortag_mac;
+            }
+            set
+            {
+                _sensortag_mac = value;
             }
         }
 
@@ -121,7 +126,7 @@ namespace SensorTag
         /// <param name="milliseconds">The delay between updates, accurate only to 10ms intervals. </param>
         public async Task SetPeriod(int milliseconds)
         {
-
+            
             int delay = milliseconds / 10;
             if (delay < 0)
             {
@@ -140,50 +145,11 @@ namespace SensorTag
 
         public async Task<bool> ConnectAsync(string deviceContainerId)
         {
-            if (Version == 1)
+            if (Version == 1) 
             {
                 throw new NotSupportedException();
             }
             return await this.ConnectAsync(LightIntensityServiceUuid, deviceContainerId);
-        }
-
-
-        public static string CSVfromValues(ObservableCollection<Tuple<DateTimeOffset, Double>> values)
-        {
-            string header = "#40:11,lux";
-            string body = "";
-            foreach (var value in values)
-            {
-                var line = value.Item1.ToString("yyyyMMddHHmmssf") + "," + value.Item2.ToString();
-                body += Environment.NewLine + line;
-            }
-            return header + body;
-        }
-        public static void OnCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
-        {
-            if (e.Action == NotifyCollectionChangedAction.Add && values.Count > 5)
-            {
-                var csv = CSVfromValues(values);
-                values.Clear();
-                SendHttpsDataPUT(csv);
-            }
-        }
-
-
-        static async void SendHttpsDataPUT(string data)
-        {
-            var _url = "https://JLEFEBVRENEW:5486/connectordata/sensortag/";
-            var httpBaseProtocolFilter = new HttpBaseProtocolFilter();
-            httpBaseProtocolFilter.IgnorableServerCertificateErrors.Add(ChainValidationResult.Untrusted);
-            using (var client = new HttpClient(httpBaseProtocolFilter))
-            {
-                var byteArray = Encoding.UTF8.GetBytes("a:a");
-                client.DefaultRequestHeaders.Authorization = new HttpCredentialsHeaderValue("Basic", Convert.ToBase64String(byteArray));
-
-                var stringContent = new HttpStringContent(data);
-                var response = await client.PutAsync(new Uri(_url), stringContent);
-                var a = await response.Content.ReadAsStringAsync();
-            }
         }
 
         protected override void OnCharacteristicValueChanged(GattCharacteristic sender, GattValueChangedEventArgs eventArgs)
@@ -207,9 +173,7 @@ namespace SensorTag
                             var measurement = new LightIntensityMeasurement();
                             measurement.Lux = lux;
 
-                            values.Add(new Tuple<DateTimeOffset, double>(eventArgs.Timestamp, lux));
-                            //SendHttpsDataPUT(data);
-                            OnLightIntensityMeasurementValueChanged(new LightIntensityMeasurementEventArgs(measurement, eventArgs.Timestamp));
+                            OnLightIntensityMeasurementValueChanged(new LightIntensityMeasurementEventArgs(measurement, eventArgs.Timestamp, _sensortag_mac));
                         }
                     }
                 }
@@ -233,13 +197,20 @@ namespace SensorTag
 
     public class LightIntensityMeasurementEventArgs : EventArgs
     {
-        public LightIntensityMeasurementEventArgs(LightIntensityMeasurement measurement, DateTimeOffset timestamp)
+        public LightIntensityMeasurementEventArgs(LightIntensityMeasurement measurement, DateTimeOffset timestamp, string mac)
         {
             Measurement = measurement;
+            Mac = mac;
             Timestamp = timestamp;
         }
 
         public LightIntensityMeasurement Measurement
+        {
+            get;
+            private set;
+        }
+
+        public string Mac
         {
             get;
             private set;
@@ -251,5 +222,4 @@ namespace SensorTag
             private set;
         }
     }
-
 }

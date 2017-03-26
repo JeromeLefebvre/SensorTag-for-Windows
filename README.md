@@ -1,10 +1,19 @@
-SensorTag-for-Windows
-=====================
+# SensorTag-for-Windows
 
 Sample code that talks to Texus Instruments SensorTag Bluetooth LE device for Windows Universal Apps.  This code supports both versions CC2541 and CC2650
 
-First pair your SensorTag with your Windows 8.1 device, then this app will automatically connect to it and show you all the data.
 
-The SensorTagLibrary code is the part that is designed to be reused in your apps, it provides most of the bluetooth characteristic data available on the SensorTag.
+## Instructions
 
+1. Pair your SensorTag with your Windows device, then this app will automatically connect to it and show you all the data.
+
+1. Create a new REST server data source in the PI Connector for UFL using the ini file included.
+
+1. Update the URL in the config file and start the program.
+
+## Owner
+
+Jerome Lefebvre: jlefebvre@osisoft.com
+
+This project uses the SensortagLibrary created by: https://github.com/clovett/SensorTag-for-Windows 
 

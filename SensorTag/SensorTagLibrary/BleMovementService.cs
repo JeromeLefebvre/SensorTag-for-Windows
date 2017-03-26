@@ -94,6 +94,22 @@ namespace SensorTag
         /// </summary>
         public int Version { get; set; }
 
+
+        private string _sensortag_mac;
+
+        public string mac
+        {
+            get
+            {
+                return _sensortag_mac;
+            }
+            set
+            {
+                _sensortag_mac = value;
+            }
+        }
+
+
         static Guid MovementServiceUUid = Guid.Parse("f000aa80-0451-4000-b000-000000000000");
         static Guid MovementCharacteristicUuid = Guid.Parse("f000aa81-0451-4000-b000-000000000000");
         static Guid MovementCharacteristicConfigUuid = Guid.Parse("f000aa82-0451-4000-b000-000000000000");
@@ -250,6 +266,8 @@ namespace SensorTag
                             measurement.GyroY = ((double)gy * 500.0) / 65536.0;
                             measurement.GyroZ = ((double)gz * 500.0) / 65536.0;
 
+                            measurement.timestamp = eventArgs.Timestamp;
+                            measurement.mac = _sensortag_mac;
                             measurement.AccelX = ((double)ax / 32768);
                             measurement.AccelY = ((double)ay / 32768);
                             measurement.AccelZ = ((double)az / 32768);
@@ -315,6 +333,9 @@ namespace SensorTag
         /// Get/Set Z direction in units of 1 micro tesla.
         /// </summary>
         public double MagZ { get; set; }
+
+        public DateTimeOffset timestamp { get; set; }
+        public string mac { get; set; }
 
         public MovementMeasurement()
         {
